@@ -1,0 +1,28 @@
+{
+  "name": "users-and-roles-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaydeepjk22/users-and-roles-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaydeepjk22/users-and-roles-backend/issues"
+  },
+  "homepage": "https://github.com/Jaydeepjk22/users-and-roles-backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.3.5",
+    "sequelize": "^6.32.1"
+  }
+}
