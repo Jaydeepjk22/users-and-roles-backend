@@ -1,5 +1,6 @@
-const { DataTypes } = require(sequelize);
+const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
+const Feed = require("./feed");
 
 const User = sequelize.define("User", {
   id: {
@@ -24,5 +25,7 @@ const User = sequelize.define("User", {
     allowNull: false,
   },
 });
+
+User.belongsToMany(Feed, { through: "UserFeed", foreignKey: "userId" });
 
 module.exports = User;
