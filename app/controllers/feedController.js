@@ -1,5 +1,6 @@
 const Feed = require("../models/feed");
 const sequelize = require("../../config/database");
+const logToFile = require("../utils/logger");
 
 const createFeed = async (req, res) => {
   const { name, url, description } = req.body;
