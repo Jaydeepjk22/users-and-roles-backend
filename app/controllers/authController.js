@@ -12,16 +12,20 @@ const authenticateUser = async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
+    // const passwordMatch = await bcrypt.compare(password, user.password);
 
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    // if (!passwordMatch) {
+    //   return res.status(401).json({ message: "Invalid credentials" });
+    // }
 
-    if (!passwordMatch) {
+    if (password !== user.password) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
     const token = jwt.sign(
       { id: user.id, email: user.email },
-      jwtConfig.secret
+      jwtConfig.secret,
+      { expiresIn: "12h" }
     );
 
     return res.json({ token });
