@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const authRoutes = require("./app/routes/authRoutes");
 const userRoutes = require("./app/routes/userRoutes");
 const feedRoutes = require("./app/routes/feedRoutes");
-const authMiddleware = require("./app/middlewares/auth");
+const authMiddleware = require("./app/middleware/auth");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
