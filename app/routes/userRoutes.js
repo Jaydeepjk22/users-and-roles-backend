@@ -6,7 +6,7 @@ const authMiddleware = require("../middleware/auth");
 const router = express.Router();
 
 router.post("/login", authController.authenticateUser);
-router.post("/users", authMiddleware.verifyToken, userController.createUser);
+router.post("/users", userController.createUser);
 router.put(
   "/users/:userId",
   authMiddleware.verifyToken,
