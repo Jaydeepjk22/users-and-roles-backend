@@ -11,9 +11,13 @@ const createFeed = async (req, res) => {
 
     await transaction.commit();
 
+    logToFile(`Feed created: ID ${feed.id}, Name: ${feed.name}`);
+
     return res.json({ id: feed.id });
   } catch (error) {
     await transaction.rollback();
+
+    logToFile(`Error creating feed: ${error}`);
 
     return res.status(500).json({ message: "Error creating feed" });
   }
@@ -41,9 +45,13 @@ const updateFeed = async (req, res) => {
 
     await transaction.commit();
 
+    logToFile(`Feed updated:ID ${feedId}, Name: ${feed.name} `);
+
     return res.json({ message: "Feed updated" });
   } catch (error) {
     await transaction.rollback();
+
+    logToFile(`Error updating feed: ${error}`);
 
     return res.status(500).json({ message: "Error updating feed" });
   }
@@ -65,9 +73,13 @@ const deleteFeed = async (req, res) => {
 
     await transaction.commit();
 
+    logToFile(`Feed deleted: ID ${feedId}`);
+
     return res.json({ message: "Feed deleted" });
   } catch (error) {
     await transaction.rollback();
+
+    logToFile(`Error deleting feed: ${error}`);
 
     return res.status(500).json({ message: "Error deleting feed" });
   }
